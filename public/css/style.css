@@ -1,0 +1,32 @@
+.main_header{
+        position:sticky;
+        top: 0;
+        z-index: 10;
+      }
+.col-md-6 {
+
+    max-width: 45%;
+    height: 1vh;
+}
+.formcontainer{
+    padding: 5%;
+}
+/* .movee {
+    position: relative;
+    left: 55%;
+
+}  */
+.btn3{
+background-color: #ee0e0e;
+color: white;
+font-weight: 544;
+border-radius: 393px;
+}
+.btn2{
+background-color: #1baa4b;
+padding: .375rem 1.1rem;
+color: white;
+font-weight: 544;
+border-radius: 393px;
+}
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reschedule Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="rescheduleForm">
+        
+        <label for="Doctor">Doctor:</label>
+        <input type="text" id="doctor" name="Doctor" value="{{Doctor}} " readonly>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" value="{{id}}"readonly>
+
+                     <div class="form-row border-bottom p-4 position-relative">
+                  <label class="text-inverse font-12 text-uppercase">Booking Date</label>
+                  <div class="input-group date">
+                    <input type="date" id="datefield" class="border-0 p-0 font-14 form-control" min='1899-01-01'
+                      max='2023-12-15' name="date" placeholder="Select the Appointment Date"required />
+                    <label class="mt-2" for="dp"><i class="icon-calendar mt-1"></i></label>
+                  </div>
+                </div>
+                <div class="form-row border-bottom p-4">
+                  <label class="text-inverse font-12 text-uppercase">Select Time</label>
+              
+<input type="text" id="selectedTime" class="border-0 p-0 font-weight-light font-14 form-control"
+       value="" list="timeOption" name="time" placeholder="Choose a time* double click" required/>
+<datalist id="timeOption">
+    <option value="9.00 AM-9.45 AM"></option>
+   <option value="10.00 AM-10.45 AM"></option>
+                    <option value="11.00 AM-11.45 AM"></option>
+                    <option value="2.00 PM-2.45 PM"></option>
+                    <option value="3.00 PM-3.45 PM"></option>
+                    <option value="4.00 PM-4.45 PM"></option>
+                    <option value="5.00 PM-5.45 PM"></option>
+                    <option value="6.00 PM-6.45 PM"></option>
+</datalist>
+
+                </div>
+                <div>
+        <button type="button" onclick="rescheduleAppointment()">Reschedule</button>
+    </form>
+
+   <script>
+    function rescheduleAppointment() {
+        const newDate = document.getElementById('datefield').value;
+        const newTime = document.getElementById('selectedTime').value;
+        console.log(newTime);
+        const id = document.getElementById('id').value;
+
+        
+        fetch(`/reschedule-appointment/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                newDate,
+                newTime,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            
+            console.log(data);
+        })
+        .catch(error => {
+            
+            console.error(error);
+        });
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{!-- {{>header}} --}}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{!-- {{>header}} --}}
+  <!-- Include jQuery library -->
+{{!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> --}}
+
+<!-- Include jQuery UI library -->
+{{!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> --}}
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  {{!-- <link rel="stylesheet" href="../../../HOSPITAL MANAGEMENT/public/css/style.css" type="text/css"> --}}
+  {{!-- <link rel="stylesheet" href="./" type="text/css"> --}}
+
+  <title>Apppointment</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    {{!-- <link rel="stylesheet" href="assets/css/style.css"> --}}
+  <style>
+    @import url(//fonts.googleapis.com/css?family=Montserrat:400,500,700);
+
+    .banner3 {
+      font-family: "Montserrat", sans-serif;
+      color: #8d97ad;
+      font-weight: 300;
+      max-height: 800px;
+    }
+
+    .banner3 .banner {
+      position: relative;
+      max-height: 700px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      width: 100%;
+      display: table;
+    }
+
+    .banner3 h1,
+    .banner3 h2,
+    .banner3 h3,
+    .banner3 h4,
+    .banner3 h5,
+    .banner3 h6 {
+      color: #3e4555;
+    }
+
+    .banner3 .font-weight-medium {
+      font-weight: 500;
+    }
+
+    .banner3 .subtitle {
+      color: #8d97ad;
+      line-height: 24px;
+    }
+
+    .banner3 .btn-danger-gradiant {
+      background: #ff4d7e;
+      background: -webkit-linear-gradient(legacy-direction(to right), #ff4d7e 0%, #ff6a5b 100%);
+      background: -webkit-gradient(linear, left top, right top, from(#ff4d7e), to(#ff6a5b));
+      background: -webkit-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+      background: -o-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+      background: linear-gradient(to right, #ff4d7e 0%, #ff6a5b 100%);
+      border: 0px;
+    }
+
+    .banner3 .btn-danger-gradiant:hover {
+      background: #ff6a5b;
+      background: -webkit-linear-gradient(legacy-direction(to right), #ff6a5b 0%, #ff4d7e 100%);
+      background: -webkit-gradient(linear, left top, right top, from(#ff6a5b), to(#ff4d7e));
+      background: -webkit-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
+      background: -o-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
+      background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
+    }
+
+    .banner3 .btn-danger-gradiant.active,
+    .banner3 .btn-danger-gradiant:active,
+    .banner3 .btn-danger-gradiant:focus {
+      -webkit-box-shadow: 0px;
+      box-shadow: 0px;
+      opacity: 1;
+    }
+
+
+    .banner3 .btn-md {
+      padding: 15px 45px;
+      font-size: 16px;
+    }
+
+    .banner3 .form-row {
+      margin: 0;
+    }
+
+    .banner3 label.font-12 {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .banner3 .form-control {
+      color: #8d97ad;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+    }
+
+    .banner3 .date label {
+      cursor: pointer;
+      margin: 0;
+    }
+
+    @media (max-width: 370px) {
+
+      .banner3 .left,
+      .banner3 .right {
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 320px) {
+
+      .banner3 .left,
+      .banner3 .right {
+        padding: 25px 15px;
+      }
+    }
+
+    .banner3 .font-14 {
+      font-size: 14px;
+    }
+
+    .banner3 .text-inverse {
+      color: #3e4555 !important;
+    }
+    
+.footer-dark {
+  padding:50px 0;
+  color:#f0f9ff;
+  background-color:#282d32;
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.6;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.8;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
+  </style>
+</head>
+
+<body>
+  {{>dashnavbar}}
+  <div class="banner3">
+    <div class="py-5 banner"
+      style="background-image:url(https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/form-banners/banner2/banner-bg.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-lg-5">
+            <h3 class="my-3 text-white font-weight-medium text-uppercase">Book Appointment</h3>
+            <div class="bg-white">
+              <form action="/appointment/{{_id}}" method="post">
+                <div class="form-row border-bottom ">
+                  <div class="p-4 right w-100">
+                    <label class="text-inverse font-12 text-uppercase">Name</label>
+                    <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Your  Name" name="name"
+                      value="{{firstname}} {{lastname}}" readonly="readonly" />
+                  </div>
+                </div>
+                <div class="form-row border-bottom p-4">
+                  <label class="text-inverse font-12 text-uppercase">Email Address</label>
+                  <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter your Email Address"
+                    name="email" value="{{email}}" readonly="readonly" />
+                </div>
+                <div class="form-row border-bottom p-4">
+                  <label class="text-inverse font-12 text-uppercase">Doctor</label>
+                  <input type="text" class="border-0 p-0 font-14 form-control" name="doctor" list="doctorOptions"
+                    name="doctor" placeholder="Choose a doctor* double click" required/>
+                  <datalist id="doctorOptions">
+                    {{#newListItems}}
+                    <option value="{{name}}">{{name}}</option>
+                    {{/newListItems}}
+                  </datalist>
+                </div>
+                <div class="form-row border-bottom p-4 position-relative">
+                  <label class="text-inverse font-12 text-uppercase">Booking Date</label>
+                  <div class="input-group date">
+                    <input type="date" id="datefield" class="border-0 p-0 font-14 form-control" min='2023-11-28'
+                      max='2023-12-15' name="date" placeholder="Select the Appointment Date"required />
+                    <label class="mt-2" for="dp"><i class="icon-calendar mt-1"></i></label>
+                  </div>
+                </div>
+                <div class="form-row border-bottom p-4">
+                  <label class="text-inverse font-12 text-uppercase">Select Time</label>
+                  <input type="text" col="1" row="1" class="border-0 p-0 font-weight-light font-14 form-control"
+                    value="" list="timeOption" name="time" placeholder="Choose a time* double click"required/>
+                  <datalist id="timeOption">
+                    <option value="9.00 AM-9.45 AM"></option>
+                    <option value="10.00 AM-10.45 AM"></option>
+                    <option value="11.00 AM-11.45 AM"></option>
+                    <option value="2.00 PM-2.45 PM"></option>
+                    <option value="3.00 PM-3.45 PM"></option>
+                    <option value="4.00 PM-4.45 PM"></option>
+                    <option value="5.00 PM-5.45 PM"></option>
+                    <option value="6.00 PM-6.45 PM"></option>
+                  </datalist>
+                </div>
+                <div>
+                  <button
+                    class="m-0 border-0 py-4 font-14 font-weight-medium btn btn-danger-gradiant btn-block position-relative rounded-0 text-center text-white text-uppercase"
+                    type="submit">
+                    <span>Book Yor Appointment Now</span>
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+   <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                            <h3>Services</h3>
+                        <ul>
+                            <li><a href="/contact">Contact</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>HealthCare</h3>
+                        <p>We care about your health!</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">HealthCare © 2022</p>
+            </div>
+        </footer>
+    </div>
+
+ <!-- Include jQuery -->
+<script src="../jq/jquery.js" type="text/javascript"></script>
+
+<!-- Include jQuery UI -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- Your datepicker and date setting script -->
+<script>
+    $(function () {
+        $('#dp').datepicker();
+    }); 
+   
+
+
+    /* var today = new Date();
+    var dd = today.getDate() +1;
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("datefield").setAttribute("min", today); */$
+    var today = new Date();
+var dd = today.getDate() + 1;
+var mm = today.getMonth() + 1; // January is 0!
+var yyyy = today.getFullYear();
+
+if (dd < 10) {
+    dd = '0' + dd;
+}
+
+if (mm < 10) {
+    mm = '0' + mm;
+}
+
+today = yyyy + '-' + mm + '-' + dd;
+
+// document.getElementById("datefield").setAttribute("min", today); 
+
+</script>
+
+<!-- Include Bootstrap -->
+<script src="../js/bootstrap.js" type="text/javascript"></script>
+
+</body>
+
+</html> 

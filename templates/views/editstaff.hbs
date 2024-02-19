@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <link rel="stylesheet" href="css/admindash.css">
+    {{!--
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    --}}
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Admin Dashboard</title>
+    <style>
+        .dashnavbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .formcontainer {
+            margin: 0 auto;
+            width: 60vw;
+            height: 50vw;
+            border: 2px solid black;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .do {
+            display: inline-block;
+            text-align: right;
+            width: 9vw;
+        }
+        .field {
+            display: inline-block;
+            width: 20rem;
+            margin-left: 1rem;
+        }
+
+        .form-group {
+            margin: 1rem 0;
+        }
+
+        .col-md-6 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    {{>dashnavbar}}
+    <div class="formcontainer">
+        <h1 class="text-center login-title my-5" style="color: red;">UPDATE STAFF</h1>
+        <form action="/updatestaff/{{_id}}" method="POST">
+            <div class="row register-form">
+                <div class="col-md-6 ">
+                    <div class="form-group">
+                        <label for="name" class="do">Name : </label>
+                        <input type="text" id="name" value="{{name}}" name="name" class="field"required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="do">Email : </label>
+                        <input type="text" id="email" value=" {{email}}" name="email" class="field"required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phonenumber" class="do">Phone Number : </label>
+                        <input type="text" minlength="10" maxlength="10" class="field" value="{{phonenumber}}" name="phonenumber"
+                            id="phonenumber"required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department" class="do ">Department : </label>
+                        <input type="text" class="field" value="{{department}}" list="departmentOptions" name="department"
+                            placeholder="Department*"required>
+                        <datalist id="departmentOptions">
+                            <option value="Cardiology">
+                            <option value="Paediatrics">
+                            <option value="Eye">
+                            <option value="Gynaceology">
+                            <option value="Dental">
+                            <option value="Orthopedic">
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <label for="id" class="do">ID : </label>
+                        <input type="number" class="field" minlength="4" maxlength="4" placeholder="0000*" value="{{id}}"
+                            name="id"required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="do">USERNAME : </label>
+                        <input type="username" class="field" minlength="7" maxlength="7" placeholder="abc@123 *"
+                            value="{{username}}" name="username"required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob" class="do">DOB : </label>
+                        <input type="date" class="field" value="{{dob}}" name="dob"required>
+                    </div>
+                    <div class="form-group">
+                           <label for="gender" class="do ">GENDER : </label>
+                        <input type="text" class="field" value="{{gender}}" list="genderOptions" name="gender"required>
+                        <datalist id="genderOptions">
+                            <option value="Male">
+                            <option value="Female">   
+                        </datalist>
+                        </div>
+                    <div>
+                        <input type="submit" class=" btn  btn-primary " value="update" style="text-align: center;">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <script src="../jq/jquery.js" type="text/javascript"></script>
+        <script src="../js/bootstrap.js" type="text/javascript"></script>
+</body>
+
+</html>

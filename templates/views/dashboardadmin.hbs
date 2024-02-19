@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{>header}}
+  <link rel="stylesheet" href="css/admindash.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Admin Dashboard</title>
+  <style>
+    .dashnavbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .formcontainer {
+      margin: 0 auto;
+      width: 65vw;
+      height: 95vh;
+      border: 2px solid black;
+    }
+
+    .form-group {
+      margin: 1rem 0;
+    }
+
+    .footer-dark {
+      padding: 50px 0;
+      color: #f0f9ff;
+      background-color: #282d32;
+    }
+
+    .footer-dark h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .footer-dark ul {
+      padding: 0;
+      list-style: none;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    .footer-dark ul a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.6;
+    }
+
+    .footer-dark ul a:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width:767px) {
+      .footer-dark .item:not(.social) {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+    }
+
+    .footer-dark .item.text {
+      margin-bottom: 36px;
+    }
+
+    @media (max-width:767px) {
+      .footer-dark .item.text {
+        margin-bottom: 0;
+      }
+    }
+
+    .footer-dark .item.text p {
+      opacity: 0.6;
+      margin-bottom: 0;
+    }
+
+    .footer-dark .item.social {
+      text-align: center;
+    }
+
+    @media (max-width:991px) {
+      .footer-dark .item.social {
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+
+    .footer-dark .item.social>a {
+      font-size: 20px;
+      width: 36px;
+      height: 36px;
+      line-height: 36px;
+      display: inline-block;
+      text-align: center;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+      margin: 0 8px;
+      color: #fff;
+      opacity: 0.75;
+    }
+
+    .footer-dark .item.social>a:hover {
+      opacity: 0.9;
+    }
+
+    .footer-dark .copyright {
+      text-align: center;
+      padding-top: 24px;
+      opacity: 0.3;
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  {{>dashnavbar}}
+  <!-- Navigation-->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+
+        <!-- Icon Cards-->
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+          <div class="inforide">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-4 col-4 rideone">
+              </div>
+              <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
+                <h4><a href="/staff" style="text-decoration: none;">STAFFS</a></h4>
+                <h2><a href="/staff" style="text-decoration: none; color:red">{{staffnumber}}</a></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+          <div class="inforide">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridetwo">
+
+              </div>
+              <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">
+                <h4><a href="/patient" style="text-decoration: none;">PATIENTS</a></h4>
+                <h2><a href="/patient" style="text-decoration: none; color:red">{{patientnumber}}</a></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4 ">
+          <div class="inforide zoom">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridethree zoom">
+
+              </div>
+              <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty ">
+                <h4><a href="/appoint" style="text-decoration: none; ">APPOINTMENTS</a></h4>
+                <h2><a href="/appoint" style="text-decoration: none; color:red">{{appointmentnumber}}</a></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="registercontainer" style="margin-bottom: 8rem;">
+    <div class="formcontainer" style="margin-top: 3rem;">
+      <h1 class="text-center login-title my-5">Add Staff</h1>
+      <form action="/registerstaff" method="POST">
+        <div class="row register-form">
+          <div class="col-md-6 movee1">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Name *" value="" name="name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Email *" value="" name="email">
+            </div>
+
+            <div class="form-group">
+              <input type="text" minlength="10" maxlength="10" class="form-control" placeholder="Phone Number *"
+                value="" name="phonenumber">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" value="" list="departmentOptions" name="department"
+                placeholder="Department*">
+              <datalist id="departmentOptions">
+                <option value="Cardiology">
+                <option value="Paediatrics">
+                <option value="Eye">
+                <option value="Gynaceology">
+                <option value="Dental">
+                <option value="Orthopedic">
+              </datalist>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="Password *" value="" name="password">
+            </div>
+          </div>
+        </div>
+        <div class="col ">
+          <div class="col-md-6 movee" style="float: right;">
+            <div class="form-group">
+              <input type="text" minlength="4" maxlength="4" class="form-control" placeholder="Id *" value="" name="id">
+            </div>
+            <div class="form-group">
+              <input type="username" class="form-control" minlength="7" maxlength="7" placeholder="Username :abc@123*"
+                value="" name="username">
+            </div>
+
+
+            <div class="form-group">
+              <input type="date" class="form-control" placeholder="DOB *" value="" name="dob">
+            </div>
+            <div class="form-group">
+              <div class="maxl">
+                <label class="radio inline">
+                  <input type="radio" name="gender" value="Male" checked>
+                  <span>Male</span>
+                </label>
+                <label class="radio inline">
+                  <input type="radio" name="gender" value="Female">
+                  <span>Female</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" placeholder="ConfirmPassword *" value=""
+                name="confirmpassword">
+            </div>
+            <input type="submit" class=" btn  btn-primary " value="Add">
+          </div>
+        </div>
+    </div>
+  </div>
+  </form>
+  </div>
+  </div>
+  <div class="footer-dark">
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-3 item">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-3 item">
+            <h3>Details</h3>
+            <ul>
+              <li><a href="/patient">Patients Details</a></li>
+              <li><a href="/staff">Staff Details</a></li>
+              <li><a href="/appoint">Appointments</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 item text">
+            <h3>HealthCare</h3>
+            <p>We care about your health!</p>
+          </div>
+          <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
+                class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a
+              href="#"><i class="icon ion-social-instagram"></i></a></div>
+        </div>
+        <p class="copyright">HealthCare © 2022</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../jq/jquery.js" type="text/javascript"></script>
+  <script src="../js/bootstrap.js" type="text/javascript"></script>
+</body>
+
+</html>
